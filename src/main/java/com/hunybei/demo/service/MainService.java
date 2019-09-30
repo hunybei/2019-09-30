@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MainService {
@@ -24,9 +25,9 @@ public class MainService {
 
         // 2.模拟业务查询 返回结果
         int totalMoney = 0;
-        for (User user : list) {
-            User u = userService.findById(user.getId());
-            totalMoney += u.getMoney();
+        List<User> userList = userService.findByList(list.stream().map(User::getId).collect(Collectors.toList()));
+        for (User user : userList) {
+            totalMoney += user.getMoney();
         }
         return totalMoney;
     }
@@ -39,9 +40,9 @@ public class MainService {
 
         // 业务查询 返回结果
         int totalMoney = 0;
-        for (User user : list) {
-            User u = userService.findById(user.getId());
-            totalMoney += u.getMoney();
+        List<User> userList = userService.findByList(list.stream().map(User::getId).collect(Collectors.toList()));
+        for (User user : userList) {
+            totalMoney += user.getMoney();
         }
         return totalMoney;
     }

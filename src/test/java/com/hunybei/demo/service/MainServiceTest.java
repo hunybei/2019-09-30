@@ -42,5 +42,4 @@ public class MainServiceTest extends DemoApplicationTests {
         Integer money = mainService.main2(list);
         assertEquals(value, money.longValue());
     }
-
 }
