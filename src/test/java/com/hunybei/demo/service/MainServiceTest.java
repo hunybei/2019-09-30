@@ -38,7 +38,6 @@ public class MainServiceTest extends DemoApplicationTests {
 
 
     @Test
-    @Transactional
     public void main2() {
         Integer money = mainService.main2(list);
         assertEquals(value, money.longValue());
